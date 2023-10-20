@@ -1,0 +1,53 @@
+footer{
+    width: auto;
+    height: auto;
+    /* margin-top: 50px; */
+    margin-bottom: 50px;
+    padding: 1rem;
+    background-color: #2cb4d7;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 2rem;
+}
+
+.ministerio{
+    background-image: url("../../ministerio.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 400px;
+    background-position: center;
+}
+
+@media screen and (max-width:720px) {
+    .ministerio{
+        width: 100%;
+        height: 100px;
+
+    }
+}
+
+.logo--footer{
+    height: 280px;
+    width: 280px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width:720px) {
+    footer{
+        flex-direction: column;
+    }
+    
+    .logo--footer{
+        display: none;
+    }
+
+}
+
+footer p{
+    font-family: 'Inter';
+    text-align: center;
+    color: #2e2d2d;
+}

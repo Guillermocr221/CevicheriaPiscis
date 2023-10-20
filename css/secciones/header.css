@@ -1,0 +1,111 @@
+header{
+    background-color: #2cb4d7;
+    height: 4rem;
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    transition: all .3s linear;
+}
+@media screen and (max-width:720px) {
+    header{
+        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-auto-rows: auto;
+    }
+}
+
+
+.header-scroll{
+    padding: 0 0;
+}
+
+.logo {
+    background-image: url(../../piscis-logo.png);
+    height: 120px;
+    width: 300px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all .3s linear;
+}
+
+@media screen and (max-width:720px) {
+    .logo{
+        grid-column: 0;
+        grid-row: 1;
+        width: 200px;
+        height: 50px;
+    }
+}
+
+@media screen and (min-width:720px) {
+    .logo-scroll{
+        width: 200px;
+    }
+}
+
+
+
+/* header div{
+    height: auto;
+    background: red;
+    margin: 1rem;
+} */
+.admin,.carrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+}
+.admin{
+    visibility: hidden;
+}
+
+/* .admin i span{
+    font-size: 35px;
+    text-align: center;
+}
+.admin p{
+    display: inline-block;
+    text-align: center;
+} */
+.carrito i span{
+    font-size: 35px;
+}
+.carrito p{
+    display: inline-block;
+}
+
+@media screen and (min-width:720px) {
+    .carrito{
+        margin-right: 1rem;
+    }
+}
+
+.contenedor-banner{
+    padding-top: 8rem;
+    background-color: #2cb4d7;
+}
+@media screen and (max-width:720px) {
+    .contenedor-banner{
+        padding-top: 4rem;
+    }
+}
+
+.banner{
+    /* height: 20vw; */
+    height: 20rem;
+    background-image: url(../../cevicheria-banner.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+

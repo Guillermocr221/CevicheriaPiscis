@@ -1,0 +1,297 @@
+/*? ---------------NAV DE CARTA-------------- */
+
+.carta{
+    border-right: 1px solid black;
+}
+
+@media screen and (max-width:720px) {
+    .carta{
+        border: none;
+    }
+}
+
+.carta h2 {
+    text-align: center;
+    margin: .7rem 0px;
+    font-family: 'Inter';
+    color: #dddd07;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+.carta .nav-carta{
+    width: 90%;
+    background: #D9D9D9;
+    /* padding: .5rem 0px; */
+    display: flex;
+    justify-content: space-evenly;
+    margin: 2rem 0;
+    margin: 1rem auto;
+    border-radius: 5px;
+}
+
+@media screen and (max-width:720px) {
+    .carta .nav-carta{
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+}
+
+.carta .nav-carta p{
+    display: inline-block;
+    font-size: .8rem;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Inter';
+    padding: .5rem .5rem;
+    user-select: none;
+} 
+p.nav-active{
+    position: relative;
+    
+}
+
+p.nav-active::before{
+    content: ' ';
+    display: block;
+    height: 3px;
+    width: 50px;
+    background: #27262665;
+    border-radius: 1rem;
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: aparecerSub .7s ease-out 0s forwards ;
+
+}
+
+@keyframes aparecerSub {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+
+/*? ---------------PLATOS-------------- */
+.carta .platos{
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.platos .plato{
+    font-family: calibri;
+    font-size: .85rem;
+    padding: 8px;
+    width: auto;
+    background-color: #D9D9D9;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    gap: 1rem;
+    opacity: 0;
+}
+
+
+
+
+
+
+@keyframes aparecer{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes moverPlato{
+    0%{
+        transform: translateX(-30px);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+
+.plato .foto-plato{
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+    opacity: 0;
+    /* transform: rotateX(30); */
+    /* border-radius: 50%; */
+    transition: all .6s linear;
+}
+
+@media screen and (max-width:720px) {
+    .plato .foto-plato{
+        overflow: visible;
+    }
+}
+
+
+.plato .foto-plato img{
+    width: 120%;
+    display: inline-block;
+    /* transform: rotateZ(20deg); */
+    /* border: dotted 1px black; */
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+   
+}
+
+@keyframes pop{
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.plato .detalles-plato{
+    flex: 2;
+}
+
+@media screen and (max-width:720px) {
+    .platos .detalles-plato{
+        flex: 1;
+    }
+}
+.detalles-plato .descripcion{
+    margin-bottom: 1rem;
+}
+@media screen and (max-width:720px) {
+    .plato .descripcion{
+        display: none;
+    }
+    .plato .detalles-plato{
+        text-align: center;
+    }
+
+}
+
+
+
+/*? ---------------TO ORDER-------------- */
+.separar-a-bordes{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width:720px) {
+    .separar-a-bordes{
+        flex-direction: column-reverse;
+    }
+    
+}
+
+.to-order{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: .2rem;
+}
+@media screen and (max-width:720px) {
+    .to-order{
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/*? ---------------BOTONES-------------- */
+
+.boton{
+    display: inline-block;
+    width: 5rem;
+    height: 1.7rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #FF9029;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-family:  calibri;
+    font-weight: bold;
+    font-size: .7rem;
+    cursor: pointer;
+}
+
+/*? ---------------PRECIO-------------- */
+
+.precio{
+    color: black;
+    font-weight: bold;
+    display: inline;
+    float: right;
+    font-size: 1.2rem;
+    font-family: 'Inter';
+}
+.precio.precio--plato{
+    padding-right: 0rem;
+
+}
+
+@media screen and (max-width:720px) {
+    .precio.precio--plato{
+        padding-right: 0;
+    }
+
+}
+@media (min-width:721px) and (max-width:1023px){
+    .precio.precio--plato{
+        /* color: red; */
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+}
+
+.precio::before{
+    content: 'S/. ';
+    
+}
+.precio::after{
+    content: '.00';
+    font-size: .9rem;
+    font-family: 'Inter';
+
+}
+
+/*? -----------NAV DE CARTA-------------- */
+
+
+.nav--platos{
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+.nav--platos .boton-nav--platos{
+    background: #D9D9D9;
+    display: inline-block;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: .7rem;
+    border-radius: 50%;
+    border: none;
+    width: 2rem;
+    cursor: pointer;
+    margin: 0 .2rem;
+}
