@@ -108,7 +108,7 @@ const platosJson = `[
     "nombre": "Leche de Tigre",
     "precio": 15,
     "descripcion": "Bebida a base de jugo de limón y ají",
-    "foto": "Leche de Tigre",
+    "foto": "leche de tigre",
     "tipo": "guarniciones"
   },
   {
