@@ -176,7 +176,7 @@ let seguirAnimaciones=true;
 let navPlatos = slidesPlatos(numeroSlides)
 // console.log(navPlatos)
 
-//*EFECTO DE SUBRAYADO EN CADA CATEGORIA DE CARTA
+//*EFECTO DE SUBRAYADO Y ACCION DE CADA BOTON CATEGORIA DE CARTA
 for(const p of navp ){
     p.addEventListener('click',()=>{
         borrarSub()
@@ -198,31 +198,33 @@ for(const p of navp ){
         numeroSlides =  Math.ceil(numeroSlides)
         navPlatos = slidesPlatos(numeroSlides)
         
-        
+        accionBotonesNavPlatos()
+
         carta.appendChild(navPlatos) // agregamos todo el nuevo contenido nuevamente a la carta
     })
 }
 
 
 //* EVENTOS A CADA BOTON DEL SLIDE
-for (const boton of navPlatos.children) {
-    boton.addEventListener('click',()=>{
-        let slideActual = boton.innerHTML
-        
-        vaciarPlatos(carta)
-        let listaDePlatos = llenarPlatos(platosObject, numeroPlatos,1)
+function accionBotonesNavPlatos(){
+    for (const boton of navPlatos.children) {
+        boton.addEventListener('click',()=>{
+            let slideActual = boton.innerHTML
+            
+            vaciarPlatos(carta)
+            let listaDePlatos = llenarPlatos(platosObject, numeroPlatos,slideActual)
+    
+            let sizeWindow = window.innerHeight/1.1
+            scrollAnimation(listaDePlatos.children,sizeWindow)
+            imagenesPlatos = document.querySelectorAll(".foto-plato")
+            popEffect(imagenesPlatos, sizeWindow)
+    
+            carta.appendChild(navPlatos)
 
-        let sizeWindow = window.innerHeight/1.1
-        scrollAnimation(listaDePlatos.children,sizeWindow)
-        imagenesPlatos = document.querySelectorAll(".foto-plato")
-        popEffect(imagenesPlatos, sizeWindow)
-
-        carta.appendChild(navPlatos)
-
-        scrollVentana()
-    })
+            scrollVentana()
+        })
+    }
 }
-
 
 
 window.addEventListener('load',()=>{
@@ -244,6 +246,7 @@ window.addEventListener('load',()=>{
     scrollAnimation(platos,sizeWindow)
     scrollAnimation(bebidas,sizeWindow)
     popEffect(imagenesPlatos, sizeWindow)
+    accionBotonesNavPlatos()
 })
 
 function scrollVentana(){
