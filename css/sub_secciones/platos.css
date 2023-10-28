@@ -92,21 +92,16 @@ p.nav-active::before{
     font-family: calibri;
     font-size: .85rem;
     padding: 8px;
-    width: auto;
+    width: 100%;
     background-color: #D9D9D9;
     border-radius: 5px;
+    opacity: 0;
     display: flex;
     flex-direction: row;
     align-items: center;
     align-content: center;
     gap: 1rem;
-    opacity: 0;
 }
-
-
-
-
-
 
 @keyframes aparecer{
     0%{
@@ -126,7 +121,6 @@ p.nav-active::before{
     }
 }
 
-
 .plato .foto-plato{
     flex: 1;
     width: 100%;
@@ -142,7 +136,6 @@ p.nav-active::before{
         overflow: visible;
     }
 }
-
 
 .plato .foto-plato img{
     width: 100%;
@@ -187,8 +180,6 @@ p.nav-active::before{
     }
 
 }
-
-
 
 /*? ---------------TO ORDER-------------- */
 .separar-a-bordes{
@@ -276,7 +267,6 @@ p.nav-active::before{
 }
 
 /*? -----------NAV DE CARTA-------------- */
-
 
 .nav--platos{
     margin-top: 1.5rem;
