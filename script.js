@@ -3,68 +3,151 @@ const platosJson = `[
        "nombre": "Ceviche de Calamar",
        "precio": 21,
        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-       "foto": "ceviche"
+       "foto": "ceviche",
+       "tipo": "kids"
    },
     {
        "nombre": "Ceviche De Javier",
        "precio": 24,
        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-       "foto": "ceviche de javier"
+       "foto": "ceviche de javier",
+       "tipo": "kids"
    },
     {
        "nombre": "Jalea",
        "precio": 17,
        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-       "foto": "leche de tigre"
+       "foto": "leche de tigre",
+       "tipo": "platos"
    },
     {
        "nombre": "Pizza",
        "precio": 19,
        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-       "foto": "conchitas"
+       "foto": "conchitas",
+       "tipo": "platos"
    },
     {
        "nombre": "Pollo",
        "precio": 28,
        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-       "foto": "ceviche"
+       "foto": "ceviche",
+       "tipo": "guarniciones"
    },
     {
        "nombre": "Jalea",
        "precio": 22,
        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-       "foto": "conchitas"
+       "foto": "conchitas",
+       "tipo": "kids"
    },
     {
        "nombre": "Pollo2",
        "precio": 22,
        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-       "foto": "ceviche"
+       "foto": "ceviche",
+       "tipo": "guarniciones"
    },
     {
        "nombre": "Chicharron",
        "precio": 19,
        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-       "foto": "conchitas"
+       "foto": "conchitas",
+       "tipo": "platos"
    },
     {
        "nombre": "Ceviche de pescado",
        "precio": 20,
        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-       "foto": "ceviche de javier"
+       "foto": "ceviche de javier",
+       "tipo": "platos"
    },
     {
        "nombre": "Ceviche de pota",
        "precio": 26,
        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-       "foto": "leche de tigre"
-   }
-   
-   
+       "foto": "leche de tigre",
+       "tipo": "platos"
+   },
+   {
+    "nombre": "Ceviche Mixto",
+    "precio": 35,
+    "descripcion": "Pescado y mariscos en una salsa de limón",
+    "foto": "ceviche",
+    "tipo": "platos"
+  },
+  {
+    "nombre": "Tiradito",
+    "precio": 30,
+    "descripcion": "Finas láminas de pescado bañadas en salsa de ají amarillo",
+    "foto": "Tiradito",
+    "tipo": "kids"
+  },
+  {
+    "nombre": "Causa Limeña",
+    "precio": 25,
+    "descripcion": "Puré de papa amarilla con ají amarillo y limón",
+    "foto": "Causa Limeña",
+    "tipo": "entradas"
+  },
+  {
+    "nombre": "Choritos a la Chalaca",
+    "precio": 20,
+    "descripcion": "Mejillones en su concha con salsa de cebolla y ají",
+    "foto": "conchitas",
+    "tipo": "entradas"
+  },
+  {
+    "nombre": "Arroz con Mariscos",
+    "precio": 40,
+    "descripcion": "Arroz con camarones, calamares y mariscos mixtos",
+    "foto": "Arroz con Mariscos",
+    "tipo": "platos"
+  },
+  {
+    "nombre": "Leche de Tigre",
+    "precio": 15,
+    "descripcion": "Bebida a base de jugo de limón y ají",
+    "foto": "Leche de Tigre",
+    "tipo": "guarniciones"
+  },
+  {
+    "nombre": "Ceviche de Mango",
+    "precio": 30,
+    "descripcion": "Ceviche con mango fresco y jugo de maracuyá",
+    "foto": "Ceviche de Mango",
+    "tipo": "platos"
+  },
+  {
+    "nombre": "Ceviche Nikkei",
+    "precio": 35,
+    "descripcion": "Ceviche de pescado con influencia japonesa",
+    "foto": "Ceviche Nikkei",
+    "tipo": "platos"
+  },
+  {
+    "nombre": "Ceviche Vegano",
+    "precio": 25,
+    "descripcion": "Ceviche con verduras frescas y leche de tigre vegana",
+    "foto": "Ceviche Vegano",
+    "tipo": "platos"
+  },
+  {
+    "nombre": "Pescado a lo Macho",
+    "precio": 45,
+    "descripcion": "Filete de pescado en salsa de mariscos picante",
+    "foto": "Pescado a lo Macho",
+    "tipo": "platos"
+  }
+      
    ]`
 
-const platosObject = JSON.parse(platosJson) // convertimos el json a un objeto JS
-const numeroPlatos = Object.keys(platosObject).length // numero de elementos del objeto
+
+let platosTotalObject = JSON.parse(platosJson) 
+let platosObject = platosTotalObject.filter((plato)=>plato.tipo === "entradas") // convertimos el json a un objeto JS
+    // platosObject = platosObject.filter((plato)=>plato.tipo === "entradas")
+
+let numeroPlatos = Object.keys(platosObject).length // numero de elementos del objeto
 let numeroSlides = numeroPlatos/4
     numeroSlides =  Math.ceil(numeroSlides)
 
@@ -93,14 +176,41 @@ let seguirAnimaciones=true;
 let navPlatos = slidesPlatos(numeroSlides)
 // console.log(navPlatos)
 
+//*EFECTO DE SUBRAYADO EN CADA CATEGORIA DE CARTA
+for(const p of navp ){
+    p.addEventListener('click',()=>{
+        borrarSub()
+        p.classList.add('nav-active')
+        
+        let tipo = p.textContent.toLowerCase()
+        platosObject = platosTotalObject.filter((plato)=>plato.tipo == tipo)
+        numeroPlatos = platosObject.length
+        
+        vaciarPlatos(carta) // vaciamos carta para rellenarla
+        let listaDePlatos = llenarPlatos(platosObject, numeroPlatos,1)
+        platos = listaDePlatos.children //children para poder iterar sobre los elementos como si fuera un arreglo
+        let sizeWindow = window.innerHeight/1.1
+        scrollAnimation(listaDePlatos.children,sizeWindow)
+        imagenesPlatos = document.querySelectorAll(".foto-plato")
+        popEffect(imagenesPlatos, sizeWindow)
+
+        numeroSlides = numeroPlatos/4
+        numeroSlides =  Math.ceil(numeroSlides)
+        navPlatos = slidesPlatos(numeroSlides)
+        
+        
+        carta.appendChild(navPlatos) // agregamos todo el nuevo contenido nuevamente a la carta
+    })
+}
+
 
 //* EVENTOS A CADA BOTON DEL SLIDE
 for (const boton of navPlatos.children) {
     boton.addEventListener('click',()=>{
         let slideActual = boton.innerHTML
-
+        
         vaciarPlatos(carta)
-        let listaDePlatos = llenarPlatos(platosObject, numeroPlatos,slideActual)
+        let listaDePlatos = llenarPlatos(platosObject, numeroPlatos,1)
 
         let sizeWindow = window.innerHeight/1.1
         scrollAnimation(listaDePlatos.children,sizeWindow)
@@ -108,6 +218,8 @@ for (const boton of navPlatos.children) {
         popEffect(imagenesPlatos, sizeWindow)
 
         carta.appendChild(navPlatos)
+
+        scrollVentana()
     })
 }
 
@@ -134,26 +246,29 @@ window.addEventListener('load',()=>{
     popEffect(imagenesPlatos, sizeWindow)
 })
 
-
-window.addEventListener('scroll',()=>{
-    
+function scrollVentana(){
     //Efecto del scroll (grande-pequeño)
     vertical=  banner.getBoundingClientRect() ;
     scrollBanner(vertical.top) // de banner
 
     let sizeWindow = window.innerHeight/1.2
     imagenesPlatos = document.querySelectorAll(".foto-plato")   
+    // console.log(imagenesPlatos)
 
 
+    // console.log(platos)
     var scrollVertical = footer.getBoundingClientRect().top ;
-    if(scrollVertical > 600  && seguirAnimaciones == true){ // Si se llega al fondo ya no se seguiran ejecutando las funciones siguientes, porque continuarion calculando la posicion de los elementos platos y bebidas,inncesario.
+    // if(scrollVertical > 600  && seguirAnimaciones == true){ // Si se llega al fondo ya no se seguiran ejecutando las funciones siguientes, porque continuarion calculando la posicion de los elementos platos y bebidas,inncesario.
         scrollAnimation(platos,sizeWindow)
         scrollAnimation(bebidas,sizeWindow)
         popEffect(imagenesPlatos, sizeWindow)
-    }else{
-        seguirAnimaciones=false
-    }
-})
+    // }else{
+        // seguirAnimaciones=false
+    // }
+}
+
+
+window.addEventListener('scroll',scrollVentana)
 
 function scrollBanner(e){ // scroll de banner
     if(e <93){
@@ -189,13 +304,6 @@ function popEffect(imagenesPlatos,sizeWindow){
     }
 }
 
-//*EFECTO DE SUBRAYADO EN CADA CATEGORIA DE CARTA
-for(const p of navp ){
-    p.addEventListener('click',()=>{
-        borrarSub()
-        p.classList.add('nav-active')
-    })
-}
 
 function borrarSub(){
     for(const p of navp ){
