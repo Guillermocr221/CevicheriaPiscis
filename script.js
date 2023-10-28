@@ -14,24 +14,24 @@ const platosJson = `[
        "tipo": "kids"
    },
     {
-       "nombre": "Jalea",
+       "nombre": "Jalea de Pescado",
        "precio": 17,
        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-       "foto": "leche de tigre",
+       "foto": "Jalea de Pescado",
        "tipo": "platos"
    },
     {
-       "nombre": "Pizza",
+       "nombre": "Pizza Marinera",
        "precio": 19,
        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-       "foto": "conchitas",
+       "foto": "Pizza Marinera",
        "tipo": "platos"
    },
     {
-       "nombre": "Pollo",
+       "nombre": "Porcion de Arroz",
        "precio": 28,
        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-       "foto": "ceviche",
+       "foto": "Porcion de Arroz",
        "tipo": "guarniciones"
    },
     {
@@ -42,17 +42,17 @@ const platosJson = `[
        "tipo": "kids"
    },
     {
-       "nombre": "Pollo2",
+       "nombre": "Porcion de Cancha",
        "precio": 22,
        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-       "foto": "ceviche",
+       "foto": "Porcion de Cancha",
        "tipo": "guarniciones"
    },
     {
        "nombre": "Chicharron",
        "precio": 19,
        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-       "foto": "conchitas",
+       "foto": "Chicharron",
        "tipo": "platos"
    },
     {
@@ -94,7 +94,7 @@ const platosJson = `[
     "nombre": "Choritos a la Chalaca",
     "precio": 20,
     "descripcion": "Mejillones en su concha con salsa de cebolla y ají",
-    "foto": "conchitas",
+    "foto": "Choritos a la Chalaca",
     "tipo": "entradas"
   },
   {

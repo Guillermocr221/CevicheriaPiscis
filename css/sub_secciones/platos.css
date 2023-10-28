@@ -145,7 +145,7 @@ p.nav-active::before{
 
 
 .plato .foto-plato img{
-    width: 120%;
+    width: 100%;
     display: inline-block;
     /* transform: rotateZ(20deg); */
     /* border: dotted 1px black; */
