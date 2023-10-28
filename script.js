@@ -80,7 +80,7 @@ const platosJson = `[
     "nombre": "Tiradito",
     "precio": 30,
     "descripcion": "Finas láminas de pescado bañadas en salsa de ají amarillo",
-    "foto": "Tiradito",
+    "foto": "tiradito",
     "tipo": "kids"
   },
   {
