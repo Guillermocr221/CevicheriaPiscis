@@ -22,7 +22,7 @@ Este proyecto utiliza PHP8 del lado del servidor para poder conectar a una DB al
 - [PHP8](#PHP8)
 - [Gist](#Gist)
 - [MYSQL](#MYSQL)
-- [Composer:equivalenteAnpm(js)]
+- [Composer](#Composer)
 
 ## Instalación
 
@@ -93,6 +93,7 @@ https://gist.github.com/codigoconjuan/deeb683d13e08c75111b83b625a8e3c9
 - Darle Ok
 
 ## Composer
+Equivalente a npm pero para PHP.
 - https://getcomposer.org/download/
 - Descargar el setup.exe 
 - Ubicar el archivo php cuando lo solicite.
