@@ -1,0 +1,106 @@
+
+
+.bebidas{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    font-family: 'Inter';
+    margin-left: 1rem;
+}
+
+@media screen and (max-width:720px) {
+    .bebidas{
+        padding: 0;
+        margin: 0;
+        margin-top: 2rem;
+    }
+}
+
+
+.bebidas h2{
+    text-align: center;
+    margin: .7rem 0px;
+    color: #dddd07;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+
+
+.lista-bebidas{
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: .2rem;
+}
+
+
+/*? ---------------BEBIDA-------------- */
+
+.bebida{
+    padding: .7rem;
+    opacity: 0;
+    /* border: none; */
+}
+.bebida .titulo-bebida{
+    text-align: center;
+    padding-bottom: .3rem;
+    position: relative;
+
+}
+.bebida .titulo-bebida::before{
+    content:' ';
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 1px;
+    background: #272727;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -.6rem;
+    
+}
+/*? ---------------CADA BEBIDA-------------- */
+
+.bebida .cuadro-bebida{
+    background-color: #B0D0DE;
+    display: flex;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    overflow: hidden;
+}
+.bebida img{
+    width: 50%;
+}
+
+.descripcion-bebida{
+    text-align: center;
+    margin: auto;
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 1rem;
+    font-size: .7rem;
+}
+
+.precio--bebidas{
+    font-size: 1rem;
+    font-weight: bold;
+    
+}
+
+.link-bebidas{
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Inter';
+    text-decoration: none;
+    color: blue;
+    font-size: .7rem;
+}

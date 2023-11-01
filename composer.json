@@ -1,0 +1,21 @@
+{
+    "name": "dell/cevicheria-piscis",
+    "description": "Proyecto Piscis",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Model\\": "./models",
+            "MVC\\": "./",
+            "Controllers\\" : "./controllers"
+        }
+    },
+    "authors": [
+        {
+            "name": "Guillermocr221",
+            "email": "guillermo.calle@unmsm.edu.pe"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.5"
+    }
+}
