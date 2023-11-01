@@ -104,3 +104,4 @@ https://gist.github.com/codigoconjuan/deeb683d13e08c75111b83b625a8e3c9
 - Abrir la terminal, y ubicarse en al carpeta public: "cd public"
 - Escribir el comando: "php -S localhost:3000" Esto arrancara el servidor, la misma consola te deja el link, ctrl + click para acceder. Se abrira la ventana con la pagina cargada.
 (De no ubicarse la carpeta Vendor, en consola escribir "composer install", esto tomara las dependencias y el autoload ubicadas en composer.json)
+(Crear el archivo con nombre ".env" en la carpeta includes, y ahi poner las credenciales de la conexion a la base de datos)
