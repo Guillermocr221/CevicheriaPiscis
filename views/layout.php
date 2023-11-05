@@ -23,6 +23,10 @@
         <div class="banner"></div>
     </div>
 
+    <div id="pantalla-carga">
+         <div id="mensaje-carga">Bienvenido a Piscis...</div>
+    </div>
+
     
     <?php echo $contenido; ?>
 

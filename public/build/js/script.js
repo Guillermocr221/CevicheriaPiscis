@@ -1,150 +1,3 @@
-// const platosJson = `[
-//     {
-//        "nombre": "Ceviche de Calamar",
-//        "precio": 21,
-//        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//        "foto": "ceviche",
-//        "tipo": "kids"
-//    },
-//     {
-//        "nombre": "Ceviche De Javier",
-//        "precio": 24,
-//        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//        "foto": "ceviche de javier",
-//        "tipo": "kids"
-//    },
-//     {
-//        "nombre": "Jalea de Pescado",
-//        "precio": 17,
-//        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//        "foto": "Jalea de Pescado",
-//        "tipo": "platos"
-//    },
-//     {
-//        "nombre": "Pizza Marinera",
-//        "precio": 19,
-//        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-//        "foto": "Pizza Marinera",
-//        "tipo": "platos"
-//    },
-//     {
-//        "nombre": "Porcion de Arroz",
-//        "precio": 28,
-//        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-//        "foto": "Porcion de Arroz",
-//        "tipo": "guarniciones"
-//    },
-//     {
-//        "nombre": "Jalea",
-//        "precio": 22,
-//        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-//        "foto": "conchitas",
-//        "tipo": "kids"
-//    },
-//     {
-//        "nombre": "Porcion de Cancha",
-//        "precio": 22,
-//        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-//        "foto": "Porcion de Cancha",
-//        "tipo": "guarniciones"
-//    },
-//     {
-//        "nombre": "Chicharron",
-//        "precio": 19,
-//        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//        "foto": "Chicharron",
-//        "tipo": "platos"
-//    },
-//     {
-//        "nombre": "Ceviche de pescado",
-//        "precio": 20,
-//        "descripcion": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-//        "foto": "ceviche de javier",
-//        "tipo": "platos"
-//    },
-//     {
-//        "nombre": "Ceviche de pota",
-//        "precio": 26,
-//        "descripcion": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-//        "foto": "leche de tigre",
-//        "tipo": "platos"
-//    },
-//    {
-//     "nombre": "Ceviche Mixto",
-//     "precio": 35,
-//     "descripcion": "Pescado y mariscos en una salsa de limón",
-//     "foto": "ceviche",
-//     "tipo": "platos"
-//   },
-//   {
-//     "nombre": "Tiradito",
-//     "precio": 30,
-//     "descripcion": "Finas láminas de pescado bañadas en salsa de ají amarillo",
-//     "foto": "tiradito",
-//     "tipo": "kids"
-//   },
-//   {
-//     "nombre": "Causa Limeña",
-//     "precio": 25,
-//     "descripcion": "Puré de papa amarilla con ají amarillo y limón",
-//     "foto": "Causa Limeña",
-//     "tipo": "entradas"
-//   },
-//   {
-//     "nombre": "Choritos a la Chalaca",
-//     "precio": 20,
-//     "descripcion": "Mejillones en su concha con salsa de cebolla y ají",
-//     "foto": "Choritos a la Chalaca",
-//     "tipo": "entradas"
-//   },
-//   {
-//     "nombre": "Arroz con Mariscos",
-//     "precio": 40,
-//     "descripcion": "Arroz con camarones, calamares y mariscos mixtos",
-//     "foto": "Arroz con Mariscos",
-//     "tipo": "platos"
-//   },
-//   {
-//     "nombre": "Leche de Tigre",
-//     "precio": 15,
-//     "descripcion": "Bebida a base de jugo de limón y ají",
-//     "foto": "leche de tigre",
-//     "tipo": "guarniciones"
-//   },
-//   {
-//     "nombre": "Ceviche de Mango",
-//     "precio": 30,
-//     "descripcion": "Ceviche con mango fresco y jugo de maracuyá",
-//     "foto": "Ceviche de Mango",
-//     "tipo": "platos"
-//   },
-//   {
-//     "nombre": "Ceviche Nikkei",
-//     "precio": 35,
-//     "descripcion": "Ceviche de pescado con influencia japonesa",
-//     "foto": "Ceviche Nikkei",
-//     "tipo": "platos"
-//   },
-//   {
-//     "nombre": "Ceviche Vegano",
-//     "precio": 25,
-//     "descripcion": "Ceviche con verduras frescas y leche de tigre vegana",
-//     "foto": "Ceviche Vegano",
-//     "tipo": "platos"
-//   },
-//   {
-//     "nombre": "Pescado a lo Macho",
-//     "precio": 45,
-//     "descripcion": "Filete de pescado en salsa de mariscos picante",
-//     "foto": "Pescado a lo Macho",
-//     "tipo": "platos"
-//   }
-      
-//    ]`
-
-// let platosTotalObject = JSON.parse(platosJson) 
-// // let platosTotalObject2 ;
-// //     
 
 let platosTotalObject = null;
 
@@ -165,7 +18,6 @@ async function consultarAPI(){
 async function obtenerPlatosDeAPI(){
     try {
         platosTotalObject = await consultarAPI();
-        // console.log(platosTotalObject);
         
     } catch (error) {
         console.log(error);
@@ -173,12 +25,14 @@ async function obtenerPlatosDeAPI(){
     
 }
 async function main() {
+    const pantallaCarga = document.getElementById('pantalla-carga');
     await obtenerPlatosDeAPI();
 
-    // let platosObject = platosTotalObject.filter((plato)=>plato.tipo === "entradas") // convertimos el json a un objeto JS
+    setTimeout(() => {
+        pantallaCarga.style.display = 'none';
+      }, 1500);
+
     let platosObject = platosTotalObject.filter((plato)=>plato.CATEGORIA === "1") // convertimos el json a un objeto JS
-    // platosObject = platosObject.filter((plato)=>plato.tipo === "entradas")
-    // console.log(platosObject)
     let numeroPlatos = Object.keys(platosObject).length // numero de elementos del objeto
     let numeroSlides = numeroPlatos/4
         numeroSlides =  Math.ceil(numeroSlides)
@@ -190,11 +44,8 @@ async function main() {
 
     let platos = document.createElement('DIV')
         platos.classList.add('platos')
-    // let platos = document.querySelectorAll(".plato") //lista de platos
-        // platos = Array.from(platos); // Convertir a un arreglo
-
+    
     let imagenesPlatos = document.querySelectorAll(".foto-plato")
-
 
     let bebidas = document.querySelectorAll(".bebida")
 
@@ -205,8 +56,8 @@ async function main() {
 
     let navPlatos = slidesPlatos(numeroSlides)
 
-    window.addEventListener('load',()=>{
-        console.log(platosObject)
+    function iniciarApp(){
+        console.log("Iniciando APP")
         //llenado de platos (en slide 1 por defecto)
         let listaDePlatos = llenarPlatos(platosObject, numeroPlatos,1);
 
@@ -225,16 +76,15 @@ async function main() {
         scrollAnimation(bebidas,sizeWindow);
         popEffect(imagenesPlatos, sizeWindow);
         accionBotonesNavPlatos();
-        consultarAPI(); //Consulta la API en el backend en PHP
-    })
+   }
+    iniciarApp();
+
 
     //*EFECTO DE SUBRAYADO Y ACCION DE CADA BOTON CATEGORIA DE CARTA
     for(const p of navp ){
         p.addEventListener('click',()=>{
             borrarSub()
             p.classList.add('nav-active')
-            // console.log(p.id)
-            // let tipo = p.textContent.toLowerCase()
             let tipo = p.id
             platosObject = platosTotalObject.filter((plato)=>plato.CATEGORIA == tipo)
             numeroPlatos = platosObject.length
@@ -242,6 +92,7 @@ async function main() {
             vaciarPlatos(carta) // vaciamos carta para rellenarla
             let listaDePlatos = llenarPlatos(platosObject, numeroPlatos,1)
             platos = listaDePlatos.children //children para poder iterar sobre los elementos como si fuera un arreglo
+            
             let sizeWindow = window.innerHeight/1.1
             scrollAnimation(listaDePlatos.children,sizeWindow)
             imagenesPlatos = document.querySelectorAll(".foto-plato")
@@ -279,9 +130,6 @@ async function main() {
         }
     }
 
-
-
-
     function scrollVentana(){
         //Efecto del scroll (grande-pequeño)
         vertical=  banner.getBoundingClientRect() ;
@@ -302,7 +150,6 @@ async function main() {
             // seguirAnimaciones=false
         // }
     }
-
 
     window.addEventListener('scroll',scrollVentana)
 
@@ -475,5 +322,4 @@ async function main() {
     
 
 }   
-
 main();
