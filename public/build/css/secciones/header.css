@@ -34,6 +34,7 @@ header{
     background-size: contain;
     background-repeat: no-repeat;
     transition: all .3s linear;
+    cursor: pointer;
 }
 
 @media screen and (max-width:720px) {
@@ -51,13 +52,6 @@ header{
     }
 }
 
-
-
-/* header div{
-    height: auto;
-    background: red;
-    margin: 1rem;
-} */
 .admin,.carrito{
     display: flex;
     flex-direction: column;

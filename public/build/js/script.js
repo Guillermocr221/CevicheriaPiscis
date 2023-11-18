@@ -57,7 +57,6 @@ async function main() {
 
     navPlatos = slidesPlatos(numeroSlides);
     iniciarApp();
-    botonesAddPlato()
  
     window.addEventListener('scroll',scrollVentana);
 }   
@@ -82,7 +81,6 @@ function activarDesactivarCarrito(carrito){
 botonCerrar.addEventListener('click',()=>{
     cuadroCarrito.classList.toggle('inactivo');
     fondoOscuro.classList.toggle('inactivo');
-
 });
 
 let i = 1;
@@ -148,6 +146,20 @@ function botonesAddPlato(){
             }
             sessionStorage.setItem(`Plato ${i}`, JSON.stringify(platoDeOrden));      
             i++;
+            
+            const mensajeAgregado=Swal.mixin({
+                toast: true,
+                width:400,
+                position: "bottom",
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true,
+            })
+            
+            mensajeAgregado.fire({
+                icon: "success",
+                title: "Plato Agregado a la Orden",
+            });
         })   
     }
 }
@@ -178,6 +190,7 @@ function iniciarApp(){
     popEffect(imagenesPlatos, sizeWindow);
     accionBotonesNavPlatos();
     accionCategoriaPlatos();
+    botonesAddPlato();
 }
 
 //FUNCIONES 
@@ -206,7 +219,7 @@ function accionCategoriaPlatos(){
             navPlatos = slidesPlatos(numeroSlides);
             
             accionBotonesNavPlatos();
-
+            botonesAddPlato(); // actualizamos los botones Add de los platos
             carta.appendChild(navPlatos); // agregamos todo el nuevo contenido nuevamente a la carta
         })
     }
@@ -217,7 +230,7 @@ function popEffect(imagenesPlatos,sizeWindow){
     for (const elemento of imagenesPlatos) {
         let posElemento = elemento.getBoundingClientRect().top;
         if(posElemento < sizeWindow){
-                elemento.style.animation = `pop .5s ease .3s forwards`;
+                elemento.classList.add('animacionPop');
         }
     }
 }
@@ -226,7 +239,7 @@ function scrollAnimation(elementos, sizeWindow){
     for(let i=0; i<elementos.length;i++){
         let posElemento = elementos[i].getBoundingClientRect().top;
         if(posElemento < sizeWindow){
-        elementos[i].style.animation = 'aparecer .5s ease-out 0s forwards, moverPlato .5s ease-out 0s forwards';
+            elementos[i].classList.add('animacionAparecer');
         }
     }
 }
@@ -398,6 +411,7 @@ function accionBotonesNavPlatos(){
             /*Cada vez que se accione el boton de navegacion de platos, se llama a la
             funcion scrollVentana() para que cargue todas las animaciones.*/
             scrollVentana();
+            botonesAddPlato();//actualizamos la lista de botones Add y su funcionalidad
         })
     }
 }
