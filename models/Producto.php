@@ -7,24 +7,6 @@ class Producto{
     //Base de datos
     protected static $db;
 
-
-    // public $ID;
-    // public $DESCRIPCION;
-    // public $INGREDIENTES;
-    // public $NOMBRE;
-    // public $CATEGORIA;
-    // public $PRECIO;
-
-    // public function __construct($args =[])
-    // {
-    //     $this->ID = $args['id'] ?? null;
-    //     $this->DESCRIPCION = $args['DESCRIPCION'] ?? null;
-    //     $this->INGREDIENTES = $args['INGREDIENTES'] ?? null;
-    //     $this->NOMBRE = $args['NOMBRE'] ?? null;
-    //     $this->CATEGORIA = $args['CATEGORIA'] ?? null;
-    //     $this->PRECIO = $args['PRECIO'] ?? null;
-    // }
-
     //Definir conexion a la DB
     public static function setDB($database){
         self::$db = $database;

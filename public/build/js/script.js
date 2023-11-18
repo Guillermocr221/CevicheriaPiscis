@@ -2,6 +2,7 @@
 let header = document.querySelector("header")
 let logo = document.querySelector(".logo")
 let banner = document.querySelector(".banner")
+let carrito = document.getElementById("carrito")
 
 let platos = document.createElement('DIV')
     platos.classList.add('platos')
@@ -55,13 +56,104 @@ async function main() {
     numeroSlides =  Math.ceil(numeroSlides);
 
     navPlatos = slidesPlatos(numeroSlides);
-    
     iniciarApp();
+    botonesAddPlato()
  
     window.addEventListener('scroll',scrollVentana);
 }   
 
 main();
+
+let cuadroCarrito = document.getElementById('contenido-carrito');
+let infoPedido = document.getElementById('info-pedido');
+let botonCerrar = document.getElementById('boton-cerrar');
+let fondoOscuro = document.getElementById('fondo-oscuro');
+
+function activarDesactivarCarrito(carrito){
+    if(cuadroCarrito.classList.contains('inactivo')){
+        cuadroCarrito.classList.remove('inactivo');
+    }else{
+        cuadroCarrito.classList.add('inactivo');
+    }
+    
+    fondoOscuro.classList.toggle('inactivo');
+}
+
+botonCerrar.addEventListener('click',()=>{
+    cuadroCarrito.classList.toggle('inactivo');
+    fondoOscuro.classList.toggle('inactivo');
+
+});
+
+let i = 1;
+
+function botonCarrito(){
+    carrito.addEventListener('click',()=>{
+        contenidoCarrito();
+        activarDesactivarCarrito(carrito);
+    });
+}
+botonCarrito();
+
+function contenidoCarrito(){
+    vaciarCarrito();
+    let platos = Object.keys(sessionStorage); //platos obtenidos del sessionStorage
+    let precioTotal = 0;
+    platos.forEach( (plato)=>{
+        let platoInfo = JSON.parse(sessionStorage.getItem(plato));
+        agregarPlatoAlCarrito(platoInfo);
+        precioTotal+= Number(platoInfo.precio);
+    });
+    
+    let total=document.createElement('P')
+        total.classList.add('precioTotal');
+        total.innerHTML = precioTotal;
+    infoPedido.appendChild(total);
+}
+
+function vaciarCarrito(){
+    while(infoPedido.children[1]){
+        infoPedido.removeChild(infoPedido.children[1]);
+    }
+}
+
+function agregarPlatoAlCarrito(objeto){
+    let platoCarrito = document.createElement('DIV');
+    platoCarrito.classList.add("plato-carrito");
+    let nombre = document.createElement('P');
+        nombre.innerHTML = objeto.nombre;
+    let precio = document.createElement('P');
+        precio.innerHTML = objeto.precio;
+
+    platoCarrito.appendChild(nombre);
+    platoCarrito.appendChild(precio);
+
+    // cuadroCarrito.appendChild(platoCarrito);
+    infoPedido.appendChild(platoCarrito);
+}
+
+
+function botonesAddPlato(){
+    
+    let botonesAdd = document.querySelectorAll(".boton--agregar--plato");
+    for (const botonAdd of botonesAdd) {
+        botonAdd.addEventListener('click',()=>{
+            let infoPlato = botonAdd.closest('.detalles-plato'); //padre del boton donde estaran el nombre y precio
+            let nombrePlato = infoPlato.querySelectorAll('.titulo-plato')[0].textContent;
+            let precioPlato = infoPlato.querySelectorAll('.precio--plato')[0].textContent;
+            // console.log(nombrePlato + " precio: " + precioPlato);
+            var platoDeOrden = {
+                nombre: nombrePlato,
+                precio: precioPlato
+            }
+            sessionStorage.setItem(`Plato ${i}`, JSON.stringify(platoDeOrden));      
+            i++;
+        })   
+    }
+}
+
+botonesAddPlato()
+
 
 
 function iniciarApp(){
@@ -228,6 +320,7 @@ function crearPlato(nombre, precio, descripcion, photo){
     detallesPlato.classList.add('detalles-plato');
     
         const tituloPlato = document.createElement('H3');
+        tituloPlato.classList.add('titulo-plato');
         tituloPlato.innerHTML= `${nombre}`;
     
         const descripcionPlato = document.createElement('P');
@@ -246,6 +339,7 @@ function crearPlato(nombre, precio, descripcion, photo){
             const boton_agregar = document.createElement('BUTTON');
             boton_agregar.classList.add('boton');
             boton_agregar.classList.add('boton--agregar');
+            boton_agregar.classList.add('boton--agregar--plato');
             boton_agregar.innerHTML = `Add`;
     
             const boton_personalizar = document.createElement('BUTTON');

@@ -11,3 +11,4 @@ class APIController{
         echo json_encode($productos);
     }
 }
+

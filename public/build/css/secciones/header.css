@@ -64,6 +64,7 @@ header{
     align-items: center;
     align-content: center;
     cursor: pointer;
+    user-select: none;
 }
 .admin{
     visibility: hidden;

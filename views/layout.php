@@ -14,11 +14,24 @@
             <p>Admin</p>
         </div>
         <div class="logo"></div>
-        <div class="carrito">
+        <div class="carrito" id="carrito">
             <i><span class="material-symbols-outlined">fact_check</span></i>
             <p>Order</p>
         </div>
+        
     </header>
+    <div class="contenido-carrito inactivo" id="contenido-carrito">
+        <div class="info-pedido" id="info-pedido">
+            <h2 class="titulo-carrito">Orden</h2>
+        </div>
+        <div class="area-whatsapp">
+            <button class="boton boton--ordenar">Ordenar Por whatsapp</button>
+        </div>    
+    </div>
+    <div class="fondo-oscuro inactivo" id="fondo-oscuro">
+        <i id="boton-cerrar"><span class="material-symbols-outlined">close</span></i>
+    </div>
+
     <div class="contenedor-banner">
         <div class="banner"></div>
     </div>

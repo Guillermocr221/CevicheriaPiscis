@@ -2,10 +2,13 @@
 @import url(secciones/header.css);
 @import url(secciones/main.css);
 @import url(secciones/footer.css);
-
+@import url(secciones/carrito.css);
 *{
     margin: 0;
     padding: 0;
+}
+body{
+  position: relative;
 }
 #pantalla-carga {
     position: fixed;
@@ -20,19 +23,19 @@
     z-index: 9999;
   }
   
-  #mensaje-carga {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    animation: jump .5s infinite alternate;
-  }
+#mensaje-carga {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  animation: jump .5s infinite alternate;
+}
   
-  @keyframes jump{
-    0%{
-        transform: translateY(0);
-    }
-    100%{
-        transform: translateY(10px);
-
-    }
+@keyframes jump{
+  0%{
+      transform: translateY(0);
   }
+  100%{
+      transform: translateY(10px);
+
+  }
+}
