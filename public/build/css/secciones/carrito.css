@@ -6,8 +6,9 @@
     transform: translate(-50%,-50%);
 
     background-color: #fff;
-    width: 400px;
+    width: 455px;
     height: 600px;
+    border-radius: 10px;
     z-index: 99999;
 
     display: flex;
@@ -15,6 +16,8 @@
     gap: 1rem;
 
     transition: all 1s ease;
+    overflow: hidden;
+    box-shadow: 0px 0px 7px #D9D9D9;
 }
 
 .fondo-oscuro{
@@ -66,7 +69,7 @@
 
 
 .inactivo{
-    transition: all 1s ease;
+    transition: all 1s ease;    
     display: none;
 
 }
@@ -76,13 +79,19 @@
 }
 .plato-carrito p{
     display: inline-block;
+    
+}
+.nombrePlatoEnCarrito{
+    width: 150px;
+    overflow: hidden;
+    text-wrap: nowrap;
 }
 .plato-carrito{
     padding: 10px;
     display: flex;
     flex-direction: row;
     gap: 4rem;
-    justify-content: space-between;
+    justify-content: right;
 }
 .plato-carrito :nth-child(2){
     font-weight: bold;
@@ -130,4 +139,8 @@
     width: 7rem;
     height: 2rem;
     margin: auto;
+}
+
+.botonEliminarPlato{
+    cursor: pointer;
 }

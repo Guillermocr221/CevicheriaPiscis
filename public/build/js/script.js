@@ -68,13 +68,18 @@ let infoPedido = document.getElementById('info-pedido');
 let botonCerrar = document.getElementById('boton-cerrar');
 let fondoOscuro = document.getElementById('fondo-oscuro');
 
-function activarDesactivarCarrito(carrito){
+let arregloDePlatosStorageRecuperado = sessionStorage.getItem('Platos');
+    arregloDePlatosStorageRecuperado = JSON.parse(arregloDePlatosStorageRecuperado); //convertir a arreglo
+
+
+let arregloDePlatosStorage = (arregloDePlatosStorageRecuperado != null) ?arregloDePlatosStorageRecuperado : [] ;
+
+function activarDesactivarCarrito(){ 
     if(cuadroCarrito.classList.contains('inactivo')){
         cuadroCarrito.classList.remove('inactivo');
     }else{
         cuadroCarrito.classList.add('inactivo');
     }
-    
     fondoOscuro.classList.toggle('inactivo');
 }
 
@@ -83,24 +88,26 @@ botonCerrar.addEventListener('click',()=>{
     fondoOscuro.classList.toggle('inactivo');
 });
 
-let i = 1;
-
 function botonCarrito(){
     carrito.addEventListener('click',()=>{
         contenidoCarrito();
-        activarDesactivarCarrito(carrito);
+        botones_borrar();
+        activarDesactivarCarrito();
     });
 }
 botonCarrito();
 
 function contenidoCarrito(){
     vaciarCarrito();
-    let platos = Object.keys(sessionStorage); //platos obtenidos del sessionStorage
     let precioTotal = 0;
-    platos.forEach( (plato)=>{
-        let platoInfo = JSON.parse(sessionStorage.getItem(plato));
-        agregarPlatoAlCarrito(platoInfo);
-        precioTotal+= Number(platoInfo.precio);
+    let i = 0; //contador para asignar id a cada plato
+    arregloDePlatosStorageRecuperado = sessionStorage.getItem('Platos');
+    arregloDePlatosStorageRecuperado = JSON.parse(arregloDePlatosStorageRecuperado);
+    
+    arregloDePlatosStorageRecuperado.forEach((platoRecuperado)=>{
+        agregarPlatoAlCarrito(platoRecuperado, i);
+        precioTotal+= Number(platoRecuperado.precio);
+        i++;
     });
     
     let total=document.createElement('P')
@@ -115,19 +122,27 @@ function vaciarCarrito(){
     }
 }
 
-function agregarPlatoAlCarrito(objeto){
+function agregarPlatoAlCarrito(objeto, id){
     let platoCarrito = document.createElement('DIV');
     platoCarrito.classList.add("plato-carrito");
+    platoCarrito.id = `${id}`;
+
     let nombre = document.createElement('P');
+        nombre.classList.add('nombrePlatoEnCarrito');
         nombre.innerHTML = objeto.nombre;
     let precio = document.createElement('P');
         precio.innerHTML = objeto.precio;
+    let botonEliminarPlato = document.createElement('I');
+        botonEliminarPlato.classList.add('botonEliminarPlato');
+        botonEliminarPlato.innerHTML = "<span class='material-symbols-outlined'>delete</span>"; 
 
     platoCarrito.appendChild(nombre);
     platoCarrito.appendChild(precio);
+    platoCarrito.appendChild(botonEliminarPlato);
 
-    // cuadroCarrito.appendChild(platoCarrito);
     infoPedido.appendChild(platoCarrito);
+
+    
 }
 
 
@@ -139,33 +154,35 @@ function botonesAddPlato(){
             let infoPlato = botonAdd.closest('.detalles-plato'); //padre del boton donde estaran el nombre y precio
             let nombrePlato = infoPlato.querySelectorAll('.titulo-plato')[0].textContent;
             let precioPlato = infoPlato.querySelectorAll('.precio--plato')[0].textContent;
-            // console.log(nombrePlato + " precio: " + precioPlato);
+
             var platoDeOrden = {
                 nombre: nombrePlato,
                 precio: precioPlato
             }
-            sessionStorage.setItem(`Plato ${i}`, JSON.stringify(platoDeOrden));      
-            i++;
+
+            arregloDePlatosStorage.push(platoDeOrden);
             
-            const mensajeAgregado=Swal.mixin({
-                toast: true,
-                width:400,
-                position: "bottom",
-                showConfirmButton: false,
-                timer: 1500,
-                timerProgressBar: true,
-            })
-            
-            mensajeAgregado.fire({
-                icon: "success",
-                title: "Plato Agregado a la Orden",
-            });
+            sessionStorage.setItem('Platos',JSON.stringify(arregloDePlatosStorage))    
+
+            mensajePlatoAgregado();
         })   
     }
 }
 
 botonesAddPlato()
 
+function botones_borrar(){
+    let botonesBorrar = document.querySelectorAll(".botonEliminarPlato")
+    botonesBorrar.forEach((botonBorrar)=>{
+        botonBorrar.addEventListener('click', ()=>{
+            let idAeliminar = botonBorrar.parentNode.id;
+            arregloDePlatosStorage.splice(idAeliminar,1);
+            sessionStorage.setItem('Platos',JSON.stringify(arregloDePlatosStorage))
+            contenidoCarrito();
+            botones_borrar();
+        });
+    })
+}
 
 
 function iniciarApp(){
@@ -414,4 +431,20 @@ function accionBotonesNavPlatos(){
             botonesAddPlato();//actualizamos la lista de botones Add y su funcionalidad
         })
     }
+}
+
+function mensajePlatoAgregado(){
+    const mensajeAgregado=Swal.mixin({
+        toast: true,
+        width:400,
+        position: "bottom",
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true,
+    })
+    
+    mensajeAgregado.fire({
+        icon: "success",
+        title: "Plato Agregado a la Orden",
+    });
 }
