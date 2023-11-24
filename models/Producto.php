@@ -14,7 +14,7 @@ class Producto{
 
     //Listar todos los productos
     public static function all(){
-        $query = "SELECT * FROM producto";
+        $query = "SELECT * FROM PRODUCTO";
 
         $resultado = self::consultarSQL($query);
 

@@ -84,14 +84,16 @@
 .nombrePlatoEnCarrito{
     width: 150px;
     overflow: hidden;
-    text-wrap: nowrap;
+    text-wrap: wrap;
 }
 .plato-carrito{
     padding: 10px;
     display: flex;
     flex-direction: row;
-    gap: 4rem;
+    gap: 3rem;
     justify-content: right;
+    align-items: center;
+    justify-content: space-between;
 }
 .plato-carrito :nth-child(2){
     font-weight: bold;

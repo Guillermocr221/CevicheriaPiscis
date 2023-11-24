@@ -1,0 +1,152 @@
+.cuadroModPlato{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    background-color: #B0D0DE;
+    width: 500px;
+    height: 650px;
+    border-radius: 10px;
+    z-index: 99999;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    transition: all 1s ease;
+    overflow: hidden;
+    box-shadow: 0px 0px 7px #D9D9D9;
+}
+
+
+.cuadroModPlato_detalles, .cuadroModPlato_personalizacion{
+    flex: 1;
+}
+.cuadroModPlato_detalles{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+/** FOTO DEL PLATO */
+.cuadroModPlato_foto{
+    box-sizing: border-box;
+    width: 50%;
+    padding: 10px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+}
+.cuadroModPlato_foto img{
+    width: 100%;
+    transform: scale(1.3);
+}
+
+/** INFORMACION DEL PLATO */
+.cuadroModPlato_info{
+    box-sizing: border-box;
+    padding: 10px 30px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.cuadroModPlato_nombre{
+    text-align: center;
+}    
+.cuadroModPlato_descripcion{
+    /* padding: 0 2rem; */
+    text-align: justify;    
+}
+.cuadroModPlato_precio{
+    text-align: right;
+    position: relative;
+}
+.cuadroModPlato_precio::before{
+    content: 'Precio Carta: ';
+    margin-right: 30px;
+    font-size: 15px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+/** PERSONALIZACION DE PLATO  */
+
+
+.extras{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.titulo_extras{
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+}
+.extra{
+    /* border: solid 2px red ; */
+    width: 90%;
+    background-color: white;
+    box-shadow: 0px 0px 10px black;
+    border-radius: 15px;
+    padding: .5rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nombre-extra{
+    font-weight: bold;
+}
+.cantidad-extra{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-family: 'Inter';
+
+    background-color: #FF9029;
+    border-radius: 15px;
+    padding: 5px 15px;
+}
+.cantidad-extra .cantidad{
+    border-radius: 50%;
+    background-color: white;
+    user-select: none;
+    padding: 2px;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
+}
+.mas, .menos{
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.nuevoPrecio{
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.modPlato-inactivo{
+    display: none;
+}
+
+.fondo-oscuro--modPlato{
+    background-color: rgba(0, 0, 0, 0.7);
+}

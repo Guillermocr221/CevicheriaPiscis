@@ -3,6 +3,7 @@
 @import url(secciones/main.css);
 @import url(secciones/footer.css);
 @import url(secciones/carrito.css);
+@import url(secciones/editarPedido.css);
 *{
     margin: 0;
     padding: 0;

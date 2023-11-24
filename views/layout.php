@@ -29,9 +29,67 @@
             <button class="boton boton--ordenar">Ordenar Por whatsapp</button>
         </div>    
     </div>
-
     <div class="fondo-oscuro inactivo" id="fondo-oscuro">
         <i id="boton-cerrar"><span class="material-symbols-outlined icono-cerrar">close</span></i>
+    </div>
+
+    <div class="cuadroModPlato modPlato-inactivo">
+        <section class="cuadroModPlato_detalles">
+
+            <div class="cuadroModPlato_foto">
+                <img class='img_cuadro' src="/build/img/svgs-platos/Cebiche Mixto.svg" alt="">
+            </div>
+            
+            <div class="cuadroModPlato_info">
+                <div class="cuadroModPlato_nombre">Ceviche Peruano</div>
+                <div class="cuadroModPlato_descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta assumenda officiis saepe rerum sapiente ex.</div>
+                <div class="cuadroModPlato_precio "><p class="precio">35</p></div>
+            </div>
+        </section>
+
+        <section class="cuadroModPlato_personalizacion">
+            <div class="extras">
+                <h2 class="titulo_extras">Agregar Extras</h2>
+                <div class="extra">
+                    <div class="nombre-extra">Aji <span>1.00</span></div>
+                    <div class="cantidad-extra">
+                        <p class="menos">-</p>
+                        <p class="cantidad"> 0 </p>
+                        <p class="mas">+</p>
+                    </div>
+                </div>
+                <div class="extra">
+                    <div class="nombre-extra">Limon <span>5.00</span></div>
+                    <div class="cantidad-extra">
+                        <p class="menos">-</p>
+                        <p class="cantidad"> 0 </p>
+                        <p class="mas">+</p>
+                    </div>
+                </div>
+                <div class="extra">
+                    <div class="nombre-extra">Cancha <span>1.00</span> </div>
+                    <div class="cantidad-extra">
+                        <p class="menos">-</p>
+                        <p class="cantidad"> 0 </p>
+                        <p class="mas">+</p>
+                    </div>
+                </div>
+                <div class="extra">
+                    <div class="nombre-extra">Chifles <span>2.50</span></div>
+                    <div class="cantidad-extra">
+                        <p class="menos">-</p>
+                        <p class="cantidad"> 0 </p>
+                        <p class="mas">+</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="nuevoPrecio">
+            <button class="boton boton--agregar boton--agregar--platoMod">Add</button>
+            <button class="boton boton--cancelar">Cancelar</button>
+            <div class="precioMod precio">45</div>
+        </section>
     </div>
 
     <div class="contenedor-banner">
@@ -42,7 +100,6 @@
          <div id="mensaje-carga">Bienvenido a Piscis...</div>
     </div>
 
-    
     <?php echo $contenido; ?>
 
 

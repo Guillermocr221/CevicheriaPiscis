@@ -106,6 +106,7 @@ function contenidoCarrito(){
     
     arregloDePlatosStorageRecuperado.forEach((platoRecuperado)=>{
         agregarPlatoAlCarrito(platoRecuperado, i);
+        console.log(platoRecuperado)
         precioTotal+= Number(platoRecuperado.precio);
         i++;
     });
@@ -114,6 +115,7 @@ function contenidoCarrito(){
         total.classList.add('precioTotal');
         total.innerHTML = precioTotal;
     infoPedido.appendChild(total);
+
 }
 
 function vaciarCarrito(){
@@ -126,10 +128,18 @@ function agregarPlatoAlCarrito(objeto, id){
     let platoCarrito = document.createElement('DIV');
     platoCarrito.classList.add("plato-carrito");
     platoCarrito.id = `${id}`;
-
     let nombre = document.createElement('P');
         nombre.classList.add('nombrePlatoEnCarrito');
+    if(objeto.extra){
+        nombre.innerHTML = `${objeto.nombre} <br>(
+        Aji: ${objeto.extra["Aji "]},
+        Cancha:${objeto.extra["Cancha "]},
+        Chifles:${objeto.extra["Chifles "]},
+        Limon:${objeto.extra["Limon "]} )`;    
+    }else{
         nombre.innerHTML = objeto.nombre;
+    }
+
     let precio = document.createElement('P');
         precio.innerHTML = objeto.precio;
     let botonEliminarPlato = document.createElement('I');
@@ -140,15 +150,14 @@ function agregarPlatoAlCarrito(objeto, id){
     platoCarrito.appendChild(precio);
     platoCarrito.appendChild(botonEliminarPlato);
 
-    infoPedido.appendChild(platoCarrito);
-
-    
+    infoPedido.appendChild(platoCarrito);   
 }
 
 
 function botonesAddPlato(){
     
     let botonesAdd = document.querySelectorAll(".boton--agregar--plato");
+    
     for (const botonAdd of botonesAdd) {
         botonAdd.addEventListener('click',()=>{
             let infoPlato = botonAdd.closest('.detalles-plato'); //padre del boton donde estaran el nombre y precio
@@ -167,9 +176,13 @@ function botonesAddPlato(){
             mensajePlatoAgregado();
         })   
     }
+    
 }
 
-botonesAddPlato()
+
+
+botonAddPlatoMod();
+botonesAddPlato();
 
 function botones_borrar(){
     let botonesBorrar = document.querySelectorAll(".botonEliminarPlato")
@@ -208,7 +221,136 @@ function iniciarApp(){
     accionBotonesNavPlatos();
     accionCategoriaPlatos();
     botonesAddPlato();
+    botonesModPlato();
 }
+
+//* CUADRO MODIFICAR
+let cuadroModificarPlato = document.querySelector(".cuadroModPlato");
+
+function botonAddPlatoMod(){
+    let botonAddModificado = document.querySelector(".boton--agregar--platoMod");
+    botonAddModificado.addEventListener('click',()=>{
+        let infoPlatoModificado =  botonAddModificado.closest(".cuadroModPlato");
+        
+        let nombrePlato = infoPlatoModificado.querySelector(".cuadroModPlato_nombre").textContent;
+        let precioPlato = infoPlatoModificado.querySelector(".precioMod").textContent; 
+        let extrasPlato = infoPlatoModificado.querySelectorAll(".nombre-extra");
+        let cantidadesExtra = infoPlatoModificado.querySelectorAll(".cantidad");
+        let extras = {}
+        // console.log(extrasPlato[0].firstChild.textContent)
+        for(let i = 0; i<extrasPlato.length; i++){
+            extras[extrasPlato[i].firstChild.textContent] = cantidadesExtra[i].textContent;
+        }
+
+        var platoDeOrden = {
+            nombre: nombrePlato,
+            precio: precioPlato,
+            extra: extras
+        }
+        arregloDePlatosStorage.push(platoDeOrden);
+            
+        sessionStorage.setItem('Platos',JSON.stringify(arregloDePlatosStorage))    
+
+
+        cerrarAbrirCuadroDeModificar();
+        cantidadesACero()
+        mensajePlatoAgregado();
+    })
+}
+
+function botonesModPlato(){
+    let botonMod = document.querySelectorAll(".boton--personalizar");
+    botonMod.forEach((boton)=>{
+        boton.addEventListener('click',()=>{
+            cerrarAbrirCuadroDeModificar();
+            
+            detallesPlato = boton.closest(".detalles-plato");
+            nombre = detallesPlato.children[0].textContent;
+            descripcion = detallesPlato.children[1].textContent;
+            precio = detallesPlato.querySelector(".precio--plato").textContent;
+            urlImagen = boton.closest(".plato").firstChild.firstChild.src;
+            llenarCuadroModificarPlato(nombre,descripcion,precio,urlImagen);
+        });
+    });
+
+    accionCancelarModificar();
+}
+
+function llenarCuadroModificarPlato(nombre,descripcion,precio,urlImagen){
+    let imagen = document.querySelector(".img_cuadro")
+        imagen.src = urlImagen
+    let nombrePlato = document.querySelector(".cuadroModPlato_nombre")
+        nombrePlato.textContent = nombre
+    let descripcionPlato = document.querySelector(".cuadroModPlato_descripcion")
+        descripcionPlato.textContent = descripcion
+    let precioCuadro = document.querySelector(".cuadroModPlato_precio").firstChild
+        precioCuadro.textContent = precio
+    let precioModificado = document.querySelector(".precioMod");
+        precioModificado.textContent = precio
+}
+
+let botonCancelarModificar = document.querySelector(".boton--cancelar")
+function accionCancelarModificar(){
+    botonCancelarModificar.addEventListener('click',()=>{
+        cerrarAbrirCuadroDeModificar()
+        cantidadesACero();
+    })
+}
+
+function cantidadesACero(){
+    let cantidades = document.querySelectorAll(".cantidad");
+        cantidades.forEach((cantidad)=>{
+            cantidad.textContent = 0;
+        })
+}
+
+function cerrarAbrirCuadroDeModificar(){
+    cuadroModificarPlato.classList.toggle("modPlato-inactivo");
+    botonCerrar.classList.toggle("inactivo");
+    fondoOscuro.classList.toggle("fondo-oscuro--modPlato");
+    fondoOscuro.classList.toggle("inactivo");
+}
+
+function funcionalidadCantidad(){
+    let botonMas = document.querySelectorAll(".mas");
+    let botonMenos = document.querySelectorAll(".menos");
+    botonMas.forEach((boton)=>{
+        boton.addEventListener('click',()=>{
+            let precioDelExtra = boton.closest(".extra").querySelector('SPAN')
+                precioDelExtra = parseFloat(precioDelExtra.textContent)
+
+            cantidad = parseInt(boton.parentElement.children[1].textContent)
+            if(cantidad<10){
+                cantidad++;
+                actualizarPrecioNuevo( precioDelExtra);
+            }
+            boton.parentElement.children[1].textContent = cantidad;
+        });
+    })
+    botonMenos.forEach((boton)=>{
+        boton.addEventListener('click',()=>{
+            let precioDelExtra = boton.closest(".extra").querySelector('SPAN')
+                precioDelExtra = -1 * parseFloat(precioDelExtra.textContent)
+
+            cantidad = parseInt(boton.parentElement.children[1].textContent)
+            if(cantidad > 0) {
+                cantidad--
+                actualizarPrecioNuevo( precioDelExtra);
+            };
+            boton.parentElement.children[1].textContent = cantidad;
+        });
+    })
+
+}
+funcionalidadCantidad();
+
+function actualizarPrecioNuevo( precioDelExtra){
+    let elementoPrecioModificado = document.querySelector(".precioMod");
+    let precioModificado= parseFloat(elementoPrecioModificado.textContent)
+
+    elementoPrecioModificado.textContent = precioModificado + precioDelExtra;
+}
+
 
 //FUNCIONES 
 
@@ -237,6 +379,8 @@ function accionCategoriaPlatos(){
             
             accionBotonesNavPlatos();
             botonesAddPlato(); // actualizamos los botones Add de los platos
+            botonesModPlato();
+            accionCancelarModificar();
             carta.appendChild(navPlatos); // agregamos todo el nuevo contenido nuevamente a la carta
         })
     }
@@ -429,6 +573,8 @@ function accionBotonesNavPlatos(){
             funcion scrollVentana() para que cargue todas las animaciones.*/
             scrollVentana();
             botonesAddPlato();//actualizamos la lista de botones Add y su funcionalidad
+            botonesModPlato();
+            accionCancelarModificar();
         })
     }
 }
