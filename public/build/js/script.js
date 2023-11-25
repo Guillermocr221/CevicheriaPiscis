@@ -594,3 +594,52 @@ function mensajePlatoAgregado(){
         title: "Plato Agregado a la Orden",
     });
 }
+
+function enviarOrdenPorWhatsApp() {
+    // info de la orden del carrito
+    const orden = obtenerOrden();
+
+    // Construye el mensaje 
+    const mensajeWhatsApp = construirMensajeWhatsApp(orden);
+
+    
+
+    const numeroWhatsApp = '+51991212971';
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
+
+
+    
+    
+    window.open(urlWhatsApp, '_blank');
+    
+}
+
+// Esta función obtiene la información de la orden desde el sessionStorage
+function obtenerOrden() {
+    const ordenRecuperada = sessionStorage.getItem('Platos');
+    return JSON.parse(ordenRecuperada) || [];
+}
+
+// Esta función construye el mensaje de la orden para WhatsApp
+function construirMensajeWhatsApp(orden) {
+    let mensaje = '¡Hola! Quiero realizar la siguiente orden:\n';
+
+    orden.forEach((plato, index) => {
+        mensaje += `${index + 1}. ${plato.nombre} - ${plato.precio}\n`;
+
+        
+        if (plato.extra) {
+            mensaje += 'Extras:\n';
+            for (const extra in plato.extra) {
+                mensaje += `- ${extra}: ${plato.extra[extra]}\n`;
+            }
+        }
+    });
+    // Calcula el total de la orden
+    const total = orden.reduce((acc, plato) => acc + parseFloat(plato.precio), 0);
+
+    mensaje += `\nTotal: ${total.toFixed(2)}`; // Muestra el total en el mensaje
+    
+
+    return mensaje;
+}

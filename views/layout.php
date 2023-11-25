@@ -26,7 +26,7 @@
             <h2 class="titulo-carrito">Orden</h2>
         </div>
         <div class="area-whatsapp">
-            <button class="boton boton--ordenar">Ordenar Por whatsapp</button>
+            <button class="boton boton--ordenar" onclick="enviarOrdenPorWhatsApp()">Ordenar Por whatsapp</button>
         </div>    
     </div>
     <div class="fondo-oscuro inactivo" id="fondo-oscuro">
