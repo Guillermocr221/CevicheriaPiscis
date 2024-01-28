@@ -20,15 +20,70 @@
         </div>
         
     </header>
+    <div class="contenedor-banner">
+        <div class="banner"></div>
+    </div>
+
 
     <div class="contenido-carrito inactivo" id="contenido-carrito">
         <div class="info-pedido" id="info-pedido">
             <h2 class="titulo-carrito">Orden</h2>
         </div>
         <div class="area-whatsapp">
-            <button class="boton boton--ordenar" onclick="enviarOrdenPorWhatsApp()">Ordenar Por whatsapp</button>
+            <button id="boton__ordenar" class="boton boton--ordenar" >Ordenar Por whatsapp</button>
+            <button id="boton__ordenar" class="boton boton--cerrarCarrito" >Cerrar Carrito</button>
         </div>    
+        <div class="formulario__datos inactivo">
+            <div class="cerrarForm">
+                <i><span class="material-symbols-outlined">
+                    cancel
+                </span></i>
+            </div>
+            <h1 class="titulo__form">
+                DATOS PERSONALES
+            </h1>
+            <div class="input__wrapper">
+                <input id="nombre" type="text" name="nombre" placeholder="Ingresar Nombres"  required
+                class="input__field">
+                <label for="nombre" class="input__label">Nombre y Apellido</label>
+            </div>
+            <div class="input__wrapper">
+                <input id="telefono" type="text" oninput="validarNumero(this)" name="telefono"  required
+                class="input__field" placeholder="Ingresar Telefono"  maxlength="9">
+                <label for="telefono" class="input__label">Telefono</label>
+            </div>
+            <div class="input__wrapper">
+                <input id="distrito" type="text" name="distrito"  required
+                class="input__field" placeholder="Ingresar distrito">
+                <label for="distrito" class="input__label">Distrito</label> 
+            </div>
+            <div class="input__wrapper">
+                <input id="direccion" type="text" name="direccion"  required
+                class="input__field" placeholder="Ingresar Direccion">
+                <label for="direccion" class="input__label">Direccion</label> 
+            </div>
+            <div class="input__wrapper select__wrapper">
+                <select id="metodoPago" name="metodoPago" class="input__field">
+                    <option value="">Seleccione una opción</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="transferencia">Transferencia</option>
+                </select>
+                <label for="metodoPago" class="input__label input__select">Metodo de Pago</label> 
+            </div>
+           
+
+            <button class="boton boton__confirmar">Confirmar Datos y Ordenar</button>
+            <div id="errorForm" class="alerta alerta--roja inactivo ">
+                <p>Ingresar Datos Correctamente</p>
+            </div>
+            <div class="alerta alerta--verde inactivo ">
+                <p>Gracias, Redireccionando A whatsapp</p>
+            </div>
+        </div>
     </div>
+
+    
+
     <div class="fondo-oscuro inactivo" id="fondo-oscuro">
         <i id="boton-cerrar"><span class="material-symbols-outlined icono-cerrar">close</span></i>
     </div>
@@ -92,9 +147,6 @@
         </section>
     </div>
 
-    <div class="contenedor-banner">
-        <div class="banner"></div>
-    </div>
 
     <div id="pantalla-carga">
          <div id="mensaje-carga">Bienvenido a Piscis...</div>

@@ -1,6 +1,6 @@
 
 
-.bebidas{
+.recomendados{
     width: 100%;
     margin: 0 auto;
     padding: 0 1.5rem;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width:720px) {
-    .bebidas{
+    .recomendados{
         padding: 0;
         margin: 0;
         margin-top: 2rem;
@@ -17,7 +17,7 @@
 }
 
 
-.bebidas h2{
+.recomendados h2{
     text-align: center;
     margin: .7rem 0px;
     color: #dddd07;
@@ -26,7 +26,7 @@
 
 
 
-.lista-bebidas{
+.lista-recomendados{
     background-color: #D9D9D9;
     display: flex;
     flex-direction: column;
@@ -37,18 +37,18 @@
 
 /*? ---------------BEBIDA-------------- */
 
-.bebida{
+.recomendado{
     padding: .7rem;
     opacity: 0;
     /* border: none; */
 }
-.bebida .titulo-bebida{
+.recomendado .titulo-recomendado{
     text-align: center;
     padding-bottom: .3rem;
     position: relative;
 
 }
-.bebida .titulo-bebida::before{
+.recomendado .titulo-recomendado::before{
     content:' ';
     display: block;
     width: 100%;
@@ -63,18 +63,20 @@
 }
 /*? ---------------CADA BEBIDA-------------- */
 
-.bebida .cuadro-bebida{
+.recomendado .cuadro-recomendado{
     background-color: #B0D0DE;
     display: flex;
     /* border: 1px solid black; */
     border-radius: 10px;
     overflow: hidden;
+    align-items: center;
 }
-.bebida img{
+.recomendado img{
     width: 50%;
+    height: 50%;
 }
 
-.descripcion-bebida{
+.descripcion-recomendado{
     text-align: center;
     margin: auto;
     padding: .3rem;
@@ -88,7 +90,7 @@
     font-size: .7rem;
 }
 
-.precio--bebidas{
+.precio--recomendado{
     font-size: 1rem;
     font-weight: bold;
     

@@ -1,5 +1,4 @@
 .contenido-carrito{
-    /* padding: 2rem; */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -18,6 +17,11 @@
     transition: all 1s ease;
     overflow: hidden;
     box-shadow: 0px 0px 7px #D9D9D9;
+}
+@media only screen and (max-width: 767px) {
+    .contenido-carrito{
+        width: 90%;
+    }
 }
 
 .fondo-oscuro{
@@ -66,8 +70,6 @@
 #info-pedido::-webkit-scrollbar-track {
     background-color: rgb(177, 172, 172); /* Color de fondo del track (la parte fija del scrollbar) */
 }
-
-
 .inactivo{
     transition: all 1s ease;    
     display: none;
@@ -79,7 +81,6 @@
 }
 .plato-carrito p{
     display: inline-block;
-    
 }
 .nombrePlatoEnCarrito{
     width: 150px;
@@ -90,21 +91,46 @@
     padding: 10px;
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    flex-wrap: nowrap;
+    gap: 0;
     justify-content: right;
     align-items: center;
     justify-content: space-between;
 }
-.plato-carrito :nth-child(2){
+
+@media only screen and (max-width: 350px) {
+    .plato-carrito{
+        flex-wrap: wrap;
+        gap: 0;
+
+    }
+}
+@media only screen  and (min-width: 351px) and (max-width: 385px) {
+    .plato-carrito{
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+}
+@media only screen  and (min-width: 386px) and (max-width: 767px) {
+    .plato-carrito{
+        flex-wrap: nowrap;
+        gap: 0;
+    }
+}
+
+.plato-carrito :nth-child(2)::after{
+    content: 'ud.';
+}
+.plato-carrito :nth-child(3){
     font-weight: bold;
     font-size: 1.2rem;
 }
-.plato-carrito :nth-child(2)::before{
+.plato-carrito :nth-child(3)::before{
     content: 'S/. ';
     color: black;
     font-size: .8rem;
 }
-.plato-carrito :nth-child(2)::after{
+.plato-carrito :nth-child(3)::after{
     content: '.00 ';
     color: black;
     font-size: .8rem;
@@ -131,18 +157,179 @@
     background-color: #B0D0DE ;
     height: 60%;
     padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+
     background-image: url(../../img/fondoCarro.png);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right bottom;
 }
 
-.boton--ordenar{
+.boton--ordenar,
+.boton--cerrarCarrito{
     width: 7rem;
     height: 2rem;
-    margin: auto;
+
 }
+
+
+@media only screen and (min-width: 767px) {
+    .boton--cerrarCarrito{
+        display: none;
+    }
+}
+
 
 .botonEliminarPlato{
     cursor: pointer;
+}
+
+.cantidadPlato::after{
+    content: ' ud.';
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* FORMULARIO DE DATOS PERSONALES */
+.formulario__datos{
+    /* border: 1px solid red; */
+    padding: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 70%;
+    width: 70%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 7px #D9D9D9;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+}
+.formulario__datos.inactivo{
+    display: none;
+}
+
+:root {
+    --background: #1F2336;
+    --box-background: #313852;
+    --secondary: #F1F1F1;
+    --primary: #FF9029;
+  }
+
+.input__wrapper {
+    position: relative;
+    padding: 15px 0 0;
+}
+  
+.input__field {
+    box-sizing: border-box;
+    outline: 1.5px solid var(
+      --secondary);
+    font-size: 12px;
+    border-radius: 8px;
+    color: rgba(0, 0, 0, 0.63);
+    padding: 8px ;
+    border: none;
+    width: 100%;
+    /* padding-right: 32px; */
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.input__field::placeholder {
+    color: transparent;
+}
+
+.input__field:placeholder-shown
+~.input__label {
+    font-size: 14px;
+    cursor: text;
+    color: #FF9029;
+    top: 22px;
+}
+
+label,
+.input__field:focus~.input__label {
+    position: absolute;
+    top: 6px;
+    padding: 0 4px;
+    background-color: #fff;
+    display: block;
+    font-size: 14px;
+    left: 20px;
+    transition: 0.3s;
+    color: #FF9029;
+}
+
+.input__field:focus~.input__label {
+    color: #B0D0DE ;
+}
+
+.input__field:focus {
+    outline: 1.5px solid #B0D0DE;
+}
+
+.boton__confirmar{
+    width: 100%;
+    margin-top: 1rem;
+}
+.input__select{
+    color: #FF9029;
+}
+.select__wrapper{
+    margin-top: 5px;
+}
+.titulo__form{
+    color: #FF9029;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/*Cerrar Form*/
+.cerrarForm{
+    color: #FF9029 ;
+    text-align: right;
+    cursor: pointer;
+    user-select: none;
+}
+/* ALERTAS */
+.alerta--abajo{
+    position: relative;
+    top: 45%;
+}
+.alerta.inactivo{
+    display: none;
+}
+
+.alerta{
+    margin-top: 10px;
+    height: 1.7rem;
+    border: none;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.alerta--roja{
+    background-color: rgba(255, 0, 0, 0.377);
+    box-shadow: 0px 0px 4px red;
+
+}
+.alerta--verde{
+    background-color: #58ff58c9;
+    box-shadow: 0px 0px 4px green;
+
+}
+.alerta p{
+    font-size: 11px;
+    text-transform: uppercase;
+    font-family: Calibri;
+    font-weight: bold;
 }

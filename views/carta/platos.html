@@ -1,70 +1,32 @@
 <div class="bg--cevicheria">
     <main>
         <section class="carta" id="carta">
-            <h2>Platos a la carta</h2>
-            <nav class="nav-carta">
+            <h2 id="titulo_platos" >Platos a la carta</h2>
+            <nav class="nav-carta" id="nav-platos">
                 <p id="1" class="nav-p nav-active">ENTRADAS</p>
                 <p id="3" class="nav-p ">PERU</p>
                 <p id="2" class="nav-p ">KIDS</p>
                 <p id="4" class="nav-p ">AUTOR</p>
             </nav>
+            <!-- <h2 id="titulo_bebidas" class="inactivo">Bebidas Disponibles</h2> -->
+            <nav class="nav-carta inactivo" id="nav-bebidas">
+                <p id="6" class="nav-p ">BAR</p>
+                <p id="7" class="nav-p ">INFUSIONES</p>
+                <p id="8" class="nav-p ">REFRESCANTES</p>
+                <p id="9" class="nav-p ">CERVEZAS</p>
+            </nav>
+
 
         </section>
 
-        <section class="bebidas">
-            <h2>Bebidas recomendadas</h2>
+        <section class="recomendados">
+            <h2 id="titulo-recomendados">Bebidas Recomendadas</h2>
 
-            <div class="lista-bebidas">
-                <div class="bebida">
-                    <h3 class="titulo-bebida">BAR</h3>
-                    <div class="cuadro-bebida">
-                        <img src="build/img/fotos-bebidas/piscoSour.png" alt="" class="foto-bebida">
+            <div class="lista-recomendados" id="lista-recomendados">
 
-                        <div class="descripcion-bebida">
-                            <h3>Pisco Sour</h3>
-                            <p class="precio precio--bebidas">17</p>
-                            <button class="boton boton--agregar">Add</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="bebida">
-                    <h3 class="titulo-bebida">INFUSIONES</h3>
-                    <div class="cuadro-bebida">
-                        <img src="build/img/fotos-bebidas/manzanilla.png" alt="" class="foto-bebida">
-                        <div class="descripcion-bebida">
-                            <h3>Manzanilla</h3>
-                            <p class="precio precio--bebidas">6</p>
-                            <button class="boton boton--agregar">Add</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="bebida">
-                    <h3 class="titulo-bebida">REFRESCANTES</h3>
-                    <div class="cuadro-bebida">
-                        <img src="build/img/fotos-bebidas/maracuya.png" alt="" class="foto-bebida">
-                        <div class="descripcion-bebida">
-                            <h3>Maracuya</h3>
-                            <p class="precio precio--bebidas">18</p>
-                            <button class="boton boton--agregar">Add</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="bebida">
-                    <h3 class="titulo-bebida">CERVEZAS</h3>
-                    <div class="cuadro-bebida">
-                        <img src="build/img/fotos-bebidas/pilsen.png" alt="" class="foto-bebida">
-                        <div class="descripcion-bebida">
-                            <h3>PILSEN 350ml</h3>
-                            <p class="precio precio--bebidas">12</p>
-                            <button class="boton boton--agregar">Add</button>
-                        </div>
-                    </div>
-                </div>
-
-                <a href="/bebidas" class="link-bebidas">VER LISTA COMPLETA DE BEBIDAS</a>
             </div>
 
-            
+            <a href="/" class="link-bebidas">VER LISTA COMPLETA DE <span id="link-recomendado">BEBIDAS</span></a>
         </section>
 
     </main>

@@ -19,6 +19,12 @@
     box-shadow: 0px 0px 7px #D9D9D9;
 }
 
+@media only screen and (max-width: 767px) {
+    .cuadroModPlato{
+        width: 95%;
+    }
+
+}
 
 .cuadroModPlato_detalles, .cuadroModPlato_personalizacion{
     flex: 1;
@@ -73,6 +79,11 @@
     top: 50%;
     left: 0;
     transform: translateY(-50%);
+}
+@media only screen and (max-width: 767px) {
+    .cuadroModPlato_precio::before{
+        content: '';
+    }
 }
 
 /** PERSONALIZACION DE PLATO  */
