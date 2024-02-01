@@ -115,6 +115,7 @@ botonCerrar.addEventListener('click',()=>{
     }
     cuadroCarrito.classList.toggle('inactivo');
     fondoOscuro.classList.toggle('inactivo');
+    cantidadEnCarrito()
 });
 
 document.querySelector('.boton--cerrarCarrito').addEventListener('click',()=>{
@@ -704,7 +705,6 @@ function actualizarPrecioNuevo( precioDelExtra ){
     elementoPrecioModificado.textContent = precioModificado + precioDelExtra;
 }
 
-
 //FUNCIONES 
 
 let cantidadCarritoSimbolo = document.querySelector('.carrito__cantidadSimbolo')
@@ -724,7 +724,6 @@ function cantidadEnCarrito(){
         cantidadCarritoSimbolo.textContent = cantidad;
     }
 }
-
 
 //?EFECTO DE SUBRAYADO Y ACCION DE CADA BOTON CATEGORIA DE CARTA
 function accionCategoriaPlatos(){
