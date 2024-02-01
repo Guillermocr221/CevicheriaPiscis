@@ -97,15 +97,30 @@ function activarDesactivarCarrito(){
         cuadroCarrito.classList.add('inactivo');
     }
     fondoOscuro.classList.toggle('inactivo');
+    cantidadEnCarrito()
 }
 
 botonCerrar.addEventListener('click',()=>{
+    
+    if(!header.classList.contains('header-scroll')){
+        botonCerrar.classList.add('boton-cerrar--Pos1');
+        if( botonCerrar.classList.contains('boton-cerrar--Pos2') ){
+            botonCerrar.classList.remove('boton-cerrar--Pos2');
+        }
+    }else{
+        botonCerrar.classList.add('boton-cerrar--Pos2');
+        if(botonCerrar.classList.contains('boton-cerrar--Pos1')){
+            botonCerrar.classList.remove('boton-cerrar--Pos1');
+        }
+    }
     cuadroCarrito.classList.toggle('inactivo');
     fondoOscuro.classList.toggle('inactivo');
 });
+
 document.querySelector('.boton--cerrarCarrito').addEventListener('click',()=>{
     cuadroCarrito.classList.toggle('inactivo');
     fondoOscuro.classList.toggle('inactivo');
+    cantidadEnCarrito()
 })
 
 function botonCarrito(){
@@ -113,6 +128,7 @@ function botonCarrito(){
         contenidoCarrito();
         botones_borrar();
         activarDesactivarCarrito();
+
     });
 }
 
@@ -176,7 +192,9 @@ function agregarPlatoAlCarrito(objeto, id){
     }
 
     let precio = document.createElement('P');
-        precio.innerHTML = Number(objeto.precio) * objeto.cantidad;
+        precio.innerHTML = (Number(objeto.precio) * objeto.cantidad).toFixed(1);
+        
+
     let botonEliminarPlato = document.createElement('I');
         botonEliminarPlato.classList.add('botonEliminarPlato');
         botonEliminarPlato.innerHTML = "<span class='material-symbols-outlined'>delete</span>"; 
@@ -216,7 +234,7 @@ function botonesAddPlato(){
             
             sessionStorage.setItem('Platos',JSON.stringify(arregloDePlatosStorage))    
             mensajePlatoAgregado();
-
+            cantidadEnCarrito()
         })
     }
 
@@ -244,6 +262,7 @@ function botonesAddPlato(){
 
             sessionStorage.setItem('Platos',JSON.stringify(arregloDePlatosStorage));    
             mensajePlatoAgregado();
+            cantidadEnCarrito()
         })   
     }
 }
@@ -341,7 +360,6 @@ function botones_borrar(){
             let contieneExtras = false;
 
             if( nombre.includes("Aji") || nombre.includes("Cancha") || nombre.includes("Chifles") || nombre.includes("Limon")){
-                console.log("Contiene Extras!");
                 contieneExtras = true;
             }
 
@@ -401,7 +419,8 @@ function iniciarApp(){
     botonAddPlatoMod();
     botonesModPlato();
     botonCarrito();
-    cambiarBebidasPlatos()
+    cambiarBebidasPlatos();
+    cantidadEnCarrito();
 }
 
 function setearInactivo(platos){
@@ -583,6 +602,7 @@ function botonAddPlatoMod(){
         cerrarAbrirCuadroDeModificar();
         cantidadesACero()
         mensajePlatoAgregado();
+        cantidadEnCarrito()
         idPlatoMod++;
     })
 }
@@ -686,6 +706,25 @@ function actualizarPrecioNuevo( precioDelExtra ){
 
 
 //FUNCIONES 
+
+let cantidadCarritoSimbolo = document.querySelector('.carrito__cantidadSimbolo')
+
+function cantidadEnCarrito(){
+    let cantidad = 0;
+    for(const plato of arregloDePlatosStorage){
+        cantidad += Number(plato.cantidad);
+    }
+
+    if(cantidad == 0){
+        cantidadCarritoSimbolo.classList.add('inactivo');
+    }else{
+        if(cantidadCarritoSimbolo.classList.contains('inactivo')){
+            cantidadCarritoSimbolo.classList.remove('inactivo');
+        }
+        cantidadCarritoSimbolo.textContent = cantidad;
+    }
+}
+
 
 //?EFECTO DE SUBRAYADO Y ACCION DE CADA BOTON CATEGORIA DE CARTA
 function accionCategoriaPlatos(){

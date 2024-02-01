@@ -56,10 +56,18 @@ header{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 5px;
     align-content: center;
     cursor: pointer;
     user-select: none;
 }
+
+@media only screen and (max-width: 767px) {
+    .carrito{
+        align-items: end;
+    }
+}
+
 .admin{
     visibility: hidden;
 }
@@ -73,10 +81,21 @@ header{
     text-align: center;
 } */
 .carrito i span{
-    font-size: 35px;
+    font-size: 45px;
+}
+@media only screen and (max-width: 767px) {
+    .carrito i span{
+        font-size: 35px;
+    }
 }
 .carrito p{
-    display: inline-block;
+    display: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .carrito p{
+        display: none;
+    }
 }
 
 @media screen and (min-width:720px) {
@@ -93,6 +112,28 @@ header{
     .contenedor-banner{
         padding-top: 4rem;
     }
+}
+
+.carrito__cantidadSimbolo{
+    width: 17px;
+    height: 17px;
+    background: red;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    right: 26px;
+    filter: drop-shadow(0px 0px 2px black);
+    transition: all .3s ease;
+}
+
+.carrito__cantidadSimbolo.inactivo{
+    transform: scale(0);
 }
 
 .banner{

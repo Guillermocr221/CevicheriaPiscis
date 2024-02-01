@@ -15,8 +15,9 @@
         </div>
         <a href="/"><div class="logo"></div></a>
         <div class="carrito" id="carrito">
-            <i><span class="material-symbols-outlined">fact_check</span></i>
+            <i><span class="material-symbols-outlined">shopping_cart</span></i>
             <p>Order</p>
+            <div class="carrito__cantidadSimbolo"></div>
         </div>
         
     </header>
@@ -85,7 +86,7 @@
     
 
     <div class="fondo-oscuro inactivo" id="fondo-oscuro">
-        <i id="boton-cerrar"><span class="material-symbols-outlined icono-cerrar">close</span></i>
+        <i id="boton-cerrar" class=""><span class="material-symbols-outlined icono-cerrar">close</span></i>
     </div>
 
     <div class="cuadroModPlato modPlato-inactivo">

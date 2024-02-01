@@ -1,8 +1,10 @@
 .cuadroModPlato{
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 
     background-color: #B0D0DE;
     width: 500px;
@@ -22,6 +24,7 @@
 @media only screen and (max-width: 767px) {
     .cuadroModPlato{
         width: 95%;
+        height: 90vh;
     }
 
 }
@@ -155,7 +158,10 @@
 }
 
 .modPlato-inactivo{
-    display: none;
+    /* top: -100%; */
+    /* right: -100%; */
+    transform: scale(0);
+    transition: all 0.5s ease;
 }
 
 .fondo-oscuro--modPlato{
