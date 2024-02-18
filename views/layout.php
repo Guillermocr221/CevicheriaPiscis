@@ -6,6 +6,7 @@
     <title>Cevicheria Piscis</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="build/css/estilos.css">
+    <script src="https://kit.fontawesome.com/93358a4a8b.js" crossorigin="anonymous"></script>
     </head>
 <body>
     <header>
@@ -13,7 +14,7 @@
             <!-- <i><span class="material-symbols-outlined">account_circle</span></i> -->
             <p>Admin</p>
         </div>
-        <a href="/"><div class="logo"></div></a>
+        <div class="logo"></div>
         <div class="carrito" id="carrito">
             <i><span class="material-symbols-outlined">shopping_cart</span></i>
             <p>Order</p>
@@ -159,17 +160,31 @@
     <footer>
         <div class="logo logo--footer"></div>
 
-        <p>Cevichería Sabor de Mar</br>
+        <div class="footer__seccion">
+            <p class="footer__titulo">Piscis Pueblo Libre</br></p>
 
-            Mz G lt. 10 Urb. Bayovar</br>
-            
-            Los Ucayali 350</p>
-        <p>     Telefono :</br>
-                005-1129</br>
-               Correo electrónico: </br>
-               sabor.mar@gmail.com</p>
+            <p class="footer__subtitulo">Direccion</p>
+            <p class="footer__contenido"> Mz G lt. 10 Urb. Bayovar Los Ucayali 350</p>
+        </div>
+        <div class="footer__seccion">
+            <p class="footer__titulo">Contacto</p>
 
+            <p class="footer__subtitulo">Telefono</p>
+            <p class="footer__contenido">005-1129</p>
+            <p class="footer__subtitulo">E-Mail</p>
+            <p class="footer__contenido">sabor.mar@gmail.com</p>
+        </div>
+        <div class="footer__seccion">
+            <p class="footer__titulo">Redes</p>
+            <div class="footer__redes">
+                <a class="iconRedes iconRedes--fb" href=""><i class="fa-brands fa-facebook"></i></a>
+                <a class="iconRedes iconRedes--ig" href=""><i class="fa-brands fa-instagram"></i></a>
+                <a class="iconRedes iconRedes--ws" href=""><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        
         <div class="ministerio"></div>
+
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

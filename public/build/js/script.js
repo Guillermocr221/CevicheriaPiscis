@@ -310,7 +310,7 @@ function cambiarBebidasPlatos(){
             borrarSub();
             let p = document.getElementById('1');
                 p.classList.add('nav-active');
-            filtrarPlatos(1, platos, 1)
+            filtrarPlatos(1, platos, 1);
             navBebidas.classList.add('inactivo');
             navPlatos.classList.remove('inactivo')
 
@@ -322,7 +322,7 @@ function cambiarBebidasPlatos(){
         window.scrollTo({
             top: 350,
             behavior: 'smooth'
-        })
+        });
     });
 }
 
@@ -355,11 +355,12 @@ function botones_borrar(){
     let botonesBorrar = document.querySelectorAll(".botonEliminarPlato")
     botonesBorrar.forEach((botonBorrar)=>{
         botonBorrar.addEventListener('click', ()=>{
+            
             let idAeliminar = botonBorrar.parentNode.id;
             let platoABorrar = botonBorrar.parentNode
             let nombre = platoABorrar.firstChild.textContent;
             let contieneExtras = false;
-
+            let timeDelay = 1100;
             if( nombre.includes("Aji") || nombre.includes("Cancha") || nombre.includes("Chifles") || nombre.includes("Limon")){
                 contieneExtras = true;
             }
@@ -370,8 +371,10 @@ function botones_borrar(){
                     if(plato.id == idAeliminar && plato.modificado == true){
                         if(plato.cantidad == 1){
                             arregloDePlatosStorage.splice(i,1);
+                            botonBorrar.parentNode.classList.add('animacionBorrar')
                         }else{
                             plato.cantidad--;
+                            timeDelay = 0;
                         }
                     }
                 }
@@ -381,16 +384,22 @@ function botones_borrar(){
                     if(plato.id == idAeliminar && plato.modificado == false){
                         if(plato.cantidad == 1){
                             arregloDePlatosStorage.splice(i,1);
+                            botonBorrar.parentNode.classList.add('animacionBorrar')
+
                         }else{
                             plato.cantidad--;
+                            timeDelay = 0;
                         }
                     }
                 }
             }
             
             sessionStorage.setItem('Platos',JSON.stringify(arregloDePlatosStorage))
-            contenidoCarrito();
-            botones_borrar();
+            setTimeout(() => {
+                contenidoCarrito();
+                botones_borrar();
+            }, timeDelay);
+            
         });
     })
 }
@@ -810,6 +819,8 @@ function generarTotalDePlatos(platosObject){
             const foto = platosObject[i]["LINKIMAGEN"];
             const categoria = platosObject[i]["CATEGORIA"];
             const idPlato = platosObject[i]["ID"];
+            
+        
             platoNuevo = crearPlato(nombre,precio,descripcion,foto,categoria, idPlato);
             platos.appendChild(platoNuevo);
         }
@@ -847,7 +858,7 @@ function crearPlato(nombre, precio, descripcion, photo, categoria, idPlato){
     //const src = `build/img/svgs-platos/${photo}.svg`;
     const link = `${photo}`;
     //console.log(link);
-    var regex = /\/filee\/d\/(.*?)\/view/;
+    var regex = /\/file\/d\/(.*?)\/view/;
     let match = link.match(regex);
     let id;
     let src ;
@@ -859,7 +870,7 @@ function crearPlato(nombre, precio, descripcion, photo, categoria, idPlato){
         id = "";
         src = `https://www.artenatur.com/wp-content/uploads/2017/02/proximamente.png`;
     }
-    //src = `http://drive.google.com/uc?export=view&id=${id}`;
+    
     imgPlato.setAttribute(`src`,src);
     
     fotoPlato.appendChild(imgPlato);
@@ -1119,3 +1130,7 @@ function construirMensajeWhatsApp(orden, info) {
 function validarNumero(input) {
     input.value = input.value.replace(/\D/g, ''); // Eliminar caracteres no numéricos
   }
+
+
+
+  

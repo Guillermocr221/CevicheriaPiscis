@@ -58,7 +58,13 @@ main{
     background-color: #cac9c9;
     border-radius: 10px;
 }
-
+@media only screen and (max-width: 767px) {
+    .nav-carta p:hover{
+        background-color: unset;
+        border-radius: unset;
+        user-select: none;
+    }
+}
 
 .carta{
     flex: 2;

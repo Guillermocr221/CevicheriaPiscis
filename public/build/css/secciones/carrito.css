@@ -50,7 +50,18 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 9999;
+    animation: aparicion .5s   1 forwards ;
 }
+
+@keyframes aparicion {
+    0%{
+        filter: opacity(0);
+    }
+    100%{
+        filter: opacity(1);
+    }
+}
+
 .fondo-oscuro.inactivo{
     display: none;
 }
@@ -81,6 +92,8 @@
 #boton-cerrar.inactivo{
     display: none;
 }
+
+
 
 .icono-cerrar{
     font-size: 2rem;
@@ -215,8 +228,24 @@
 
 .botonEliminarPlato{
     cursor: pointer;
+    user-select: none;
 }
-
+.botonEliminarPlato:hover{
+    color: red;
+}
+.animacionBorrar{
+    animation: animacionBorrado 1s forwards ;
+}
+@keyframes animacionBorrado {
+    0%{
+        transform: translateX(0px);
+        filter: opacity(1);
+    }
+    100%{
+        transform: translateX(200px);
+        filter: opacity(0);
+    }
+}
 .cantidadPlato::after{
     content: ' ud.';
     font-size: 14px;
